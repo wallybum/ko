@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="exerd.web.ko.main.mapper.CustomerMapper">
+    <select id="getCustomerList" resultType="exerd.web.ko.main.vo.CustomerVO">
+        SELECT
+                CLT_SEQ as seq
+            ,   CLT_NAME as name
+            ,   CLT_LINK as link
+            ,   CLT_FILE as file
+            ,   CLT_EN_NAME as name_en
+        FROM tb_client A
+        WHERE A.DEL_YN = 'N'
+        ORDER BY A.CLT_SEQ
+        DESC LIMIT 0,9999
+    </select>
+</mapper>
