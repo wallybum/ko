@@ -40,7 +40,7 @@
                     <div class="movie">
                         <div class="thumb opacity" data-animation-effect="fadeInUp" data-effect-delay="300">
                             <img th:src="@{/img/index_img0201.jpg}" alt="">
-                                <a th:onclick="'javascript:callVdo('.pop-video')'" class="play">media play</a>
+                                <a href="#" onclick="javascript:callVdo('.pop-video')" class="play">media play</a>
                         </div>
                     </div>
                     <div class="desc">
@@ -389,77 +389,107 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="pop-video">
-        <div class="video">
-            <div class="mov">
-                <iframe src='https://www.youtube.com/embed/noIc_hPc0yQ?autoplay=0&rel=0&cc_load_policy=0'
-                    frameborder='0' allowfullscreen></iframe>
+        <div class="pop-video">
+            <div class="video">
+                <div class="mov">
+                    <iframe src='https://www.youtube.com/embed/noIc_hPc0yQ?autoplay=0&rel=0&cc_load_policy=0'
+                            frameborder='0' allowfullscreen></iframe>
+                </div>
             </div>
+            <a href="#none" class="bt-close b-close"></a>
         </div>
-        <a href="#none" class="bt-close b-close"></a>
-    </div>
-    <script>
-    function callAni1(){
-        $("#ani1").bPopup({
-            onOpen: function() {
-                $('#ani1 .mov iframe').attr('src', 'https://www.youtube.com/embed/8JnZrtA1hUU?autoplay=0&rel=0&cc_load_policy=0');
-            },
-            onClose: function() {
-                $("#ani1 .mov iframe").attr("src","");
-            }
-        });
-    }
-    function callAni2(){
-        $("#ani2").bPopup({
-            onOpen: function() {
-                $('#ani2 .mov iframe').attr('src', 'https://www.youtube.com/embed/cOw2zWZHpvA?autoplay=0&rel=0&cc_load_policy=0');
-            },
-            onClose: function() {
-                $("#ani2 .mov iframe").attr("src","");
-            }
-        });
-    }
-    function callAni3(){
-        $("#ani3").bPopup({
-            onOpen: function() {
-                $('#ani3 .mov iframe').attr('src', 'https://www.youtube.com/embed/FdrAqicJGEU?autoplay=0&rel=0&cc_load_policy=0');
-            },
-            onClose: function() {
-                $("#ani3 .mov iframe").attr("src","");
-            }
-        });
-    }
-    function callAni4(){
-        $("#ani4").bPopup({
-            onOpen: function() {
-                $('#ani4 .mov iframe').attr('src', 'https://www.youtube.com/embed/HZisx7Y_C6E?autoplay=0&rel=0&cc_load_policy=0');
-            },
-            onClose: function() {
-                $("#ani4 .mov iframe").attr("src","");
-            }
-        });
-    }
-    function callAni5(){
-        $("#ani5").bPopup({
-            onOpen: function() {
-                $('#ani5 .mov iframe').attr('src', 'https://www.youtube.com/embed/9XoCpN7yAnU?autoplay=0&rel=0&cc_load_policy=0');
-            },
-            onClose: function() {
-                $("#ani5 .mov iframe").attr("src","");
-            }
-        });
-    }
-    function callAni6(){
-        $("#ani6").bPopup({
-            onOpen: function() {
-                $('#ani6 .mov iframe').attr('src', 'https://www.youtube.com/embed/sVk1kkhoXSM?autoplay=0&rel=0&cc_load_policy=0');
-            },
-            onClose: function() {
-                $("#ani6 .mov iframe").attr("src","");
-            }
-        });
-    }
+        <div class="pop-ani" id="ani1">
+            <div class="video"><div class="mov"><iframe src='https://www.youtube.com/embed/8JnZrtA1hUU?autoplay=0&rel=0&cc_load_policy=0' frameborder='0' allowfullscreen></iframe></div></div>
+            <a href="#none" class="bt-close b-close"></a>
+        </div><!-- /Automation1 -->
 
-</script>
+        <div class="pop-ani" id="ani2">
+            <div class="video"><div class="mov"><iframe src='https://www.youtube.com/embed/cOw2zWZHpvA?autoplay=0&rel=0&cc_load_policy=0' frameborder='0' allowfullscreen></iframe></div></div>
+            <a href="#none" class="bt-close b-close"></a>
+        </div><!-- /Automation2 -->
+
+        <div class="pop-ani" id="ani3">
+            <div class="video"><div class="mov"><iframe src='https://www.youtube.com/embed/FdrAqicJGEU?autoplay=0&rel=0&cc_load_policy=0' frameborder='0' allowfullscreen></iframe></div></div>
+            <a href="#none" class="bt-close b-close"></a>
+        </div><!-- /Automation3 -->
+
+        <div class="pop-ani" id="ani4">
+            <div class="video"><div class="mov"><iframe src='https://www.youtube.com/embed/HZisx7Y_C6E?autoplay=0&rel=0&cc_load_policy=0' frameborder='0' allowfullscreen></iframe></div></div>
+            <a href="#none" class="bt-close b-close"></a>
+        </div><!-- /Automation4 -->
+
+        <div class="pop-ani" id="ani5">
+            <div class="video"><div class="mov"><iframe src='https://www.youtube.com/embed/9XoCpN7yAnU?autoplay=0&rel=0&cc_load_policy=0' frameborder='0' allowfullscreen></iframe></div></div>
+            <a href="#none" class="bt-close b-close"></a>
+        </div><!-- /Automation5 -->
+
+        <div class="pop-ani" id="ani6">
+            <div class="video"><div class="mov"><iframe src='https://www.youtube.com/embed/sVk1kkhoXSM?autoplay=0&rel=0&cc_load_policy=0' frameborder='0' allowfullscreen></iframe></div></div>
+            <a href="#none" class="bt-close b-close"></a>
+        </div><!-- /Automation6 -->
+        <script>
+            function callAni1(){
+                $("#ani1").bPopup({
+                    onOpen: function() {
+                        $('#ani1 .mov iframe').attr('src', 'https://www.youtube.com/embed/8JnZrtA1hUU?autoplay=0&rel=0&cc_load_policy=0');
+                    },
+                    onClose: function() {
+                        $("#ani1 .mov iframe").attr("src","");
+                    }
+                });
+            }
+            function callAni2(){
+                $("#ani2").bPopup({
+                    onOpen: function() {
+                        $('#ani2 .mov iframe').attr('src', 'https://www.youtube.com/embed/cOw2zWZHpvA?autoplay=0&rel=0&cc_load_policy=0');
+                    },
+                    onClose: function() {
+                        $("#ani2 .mov iframe").attr("src","");
+                    }
+                });
+            }
+            function callAni3(){
+                $("#ani3").bPopup({
+                    onOpen: function() {
+                        $('#ani3 .mov iframe').attr('src', 'https://www.youtube.com/embed/FdrAqicJGEU?autoplay=0&rel=0&cc_load_policy=0');
+                    },
+                    onClose: function() {
+                        $("#ani3 .mov iframe").attr("src","");
+                    }
+                });
+            }
+            function callAni4(){
+                $("#ani4").bPopup({
+                    onOpen: function() {
+                        $('#ani4 .mov iframe').attr('src', 'https://www.youtube.com/embed/HZisx7Y_C6E?autoplay=0&rel=0&cc_load_policy=0');
+                    },
+                    onClose: function() {
+                        $("#ani4 .mov iframe").attr("src","");
+                    }
+                });
+            }
+            function callAni5(){
+                $("#ani5").bPopup({
+                    onOpen: function() {
+                        $('#ani5 .mov iframe').attr('src', 'https://www.youtube.com/embed/9XoCpN7yAnU?autoplay=0&rel=0&cc_load_policy=0');
+                    },
+                    onClose: function() {
+                        $("#ani5 .mov iframe").attr("src","");
+                    }
+                });
+            }
+            function callAni6(){
+                $("#ani6").bPopup({
+                    onOpen: function() {
+                        $('#ani6 .mov iframe').attr('src', 'https://www.youtube.com/embed/sVk1kkhoXSM?autoplay=0&rel=0&cc_load_policy=0');
+                    },
+                    onClose: function() {
+                        $("#ani6 .mov iframe").attr("src","");
+                    }
+                });
+            }
+
+        </script>
+    </div>
+
 </html>

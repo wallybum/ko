@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-    <head th:replace="fragments/config :: configFragment"></head>
-    <header th:replace="fragments/header :: headerFragment"></header>
-    <div layout:fragment="content"></div>
+    <th:block th:replace="fragments/config :: configFragment"></th:block>
+    <th:block th:replace="fragments/header :: headerFragment"></th:block>
+    <th:block layout:fragment="content"></th:block>
 <!--    <footer th:replace="fragments/footer :: footerFragment"></footer>-->
 </html>
