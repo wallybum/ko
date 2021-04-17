@@ -13,7 +13,7 @@ public class MainController {
 
     @GetMapping(value="/")
     public String main(Model model) {
-        model.addAttribute("customer",customerService.getCustomerList());
+        model.addAttribute("customerList",customerService.getCustomerList());
         return "index.html";
     }
 }

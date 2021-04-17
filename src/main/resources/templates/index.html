@@ -363,25 +363,32 @@
                 </div>
             </div>
         </div>
-<!--        <div class="section index05">-->
-<!--            <div class="inner">-->
-<!--                <h2 class="main-tit">Partner</h2>-->
-<!--                <div class="inbx">-->
-<!--                    <div class="desc opacity" data-animation-effect="fadeInUp"-->
-<!--                         data-effect-delay="300">주요 고객사</div>-->
-<!--                    <div class="part-bx opacity" data-animation-effect="fadeInUp"-->
-<!--                         data-effect-delay="600">-->
-<!--                        <div class="side-bx">-->
-<!--                            <div class="swiper-wrapper">-->
-<!--                                <ul>-->
-<!--                                    &lt;!&ndash; forEach &ndash;&gt;-->
-<!--                                </ul>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+        <div class="section index05">
+            <div class="inner">
+                <h2 class="main-tit">Partner</h2>
+                <div class="inbx">
+                    <div class="desc opacity" data-animation-effect="fadeInUp"
+                         data-effect-delay="300">주요 고객사</div>
+                    <div class="part-bx opacity" data-animation-effect="fadeInUp"
+                         data-effect-delay="600">
+                       <!-- -->
+                        <div class="side-bx">
+                            <div class="swiper-wrapper">
+                                <ul>
+                                    <!-- forEach -->
+                                    <li th:each="customer: ${customerList}" class="copr">
+                                        <span class="logo">
+                                            <img th:src="|http://exerd.com/upload/${customer.file}|" alt="">
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="pop-video">
         <div class="video">
