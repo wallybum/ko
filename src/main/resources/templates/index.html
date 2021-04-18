@@ -374,24 +374,11 @@
                              data-effect-delay="600">
                            <!-- -->
                             <div class="side-bx">
-                                <div class="swiper-wrapper">
-                                    <ul>
-                                        <!-- forEach -->
-                                        <li th:each="customer: ${customerList}" class="copr">
-                                            <span class="logo">
-                                                <img th:src="|http://exerd.com/upload/${customer.file}|" alt="">
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide item">
-                                    <ul>
-
-                                    </ul>
+                                <div id="list" class="swiper-wrapper">
                                 </div>
                             </div>
+                            <div class="pager"></div>
                         </div>
-                        <div class="pager"></div>
                     </div>
                 </div>
             </div>
@@ -435,6 +422,47 @@
             <a href="#none" class="bt-close b-close"></a>
         </div><!-- /Automation6 -->
         <script>
+
+            $(function ready() {
+                var size = "[[${customerListCount}]]";
+                var size2 = 0;
+                var appendData = "";
+                var list = JSON.parse("[[${customerList}]]".replace(/&quot;/g, '"'));
+
+                for (var i=0; i<size; i++) {
+                    if (i === 0) {
+                        appendData += '<div class="swiper-slide item swiper-slide-active">';
+                    } else if (i === 1) {
+                        appendData += '<div class="swiper-slide item swiper-slide-next">';
+                    } else {
+                        appendData += '<div class="swiper-slide item">';
+                    }
+
+                    appendData += '<ul>';
+
+                    size2 = (i+1)*15;
+
+                    if (size2 > list.length) {
+                        size2 = list.length;
+                    }
+
+                    for (var j=i*15; j<size2; j++) {
+                        appendData += '<li class="copr">';
+                        appendData += '<span class="logo">';
+                        appendData += '<img src="http://exerd.com/upload/'+list[j].file+'" alt="">';
+                        appendData += '</span>';
+                        appendData += '</li>';
+                    }
+
+                    appendData += '</ul>'
+                    appendData += '</div>';
+
+                }
+
+                $("#list").append(appendData);
+
+            });
+
             function callAni1(){
                 $("#ani1").bPopup({
                     onOpen: function() {
