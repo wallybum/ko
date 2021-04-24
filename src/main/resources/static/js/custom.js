@@ -393,7 +393,6 @@ function callVdo(classId){
 
 
 function aniEff(){
-
     // Animations
     //-----------------------------------------------
     if (($("[data-animation-effect]").length>0) && !Modernizr.touch) {

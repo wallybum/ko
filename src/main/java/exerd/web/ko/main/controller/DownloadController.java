@@ -10,7 +10,7 @@ public class DownloadController {
     @Autowired
 //    DownloadService downloadService;
 
-    @GetMapping(value="/download")
+    @GetMapping(value="/down")
     public String main(){
 
         return "download.html";
