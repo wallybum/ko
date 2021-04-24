@@ -5,8 +5,7 @@
 
 <!--헤더 -->
 <div layout:fragment="content">
-    <div id="indexwrap"><
-        <!-- 메인 시작 -->
+    <div id="indexwrap">
         <div class="section intro">
             <div class="desc">
                 <div class="tx01">
@@ -33,7 +32,6 @@
                 </video>
             </div>
         </div>
-        <!-- intro 끝 -->
         <div class="section index01">
             <div class="inner">
                 <h2 class="main-tit">Experience</h2>
@@ -390,6 +388,7 @@
                         <div class="pager"></div>
                     </div>
                 </div>
+                <th:block th:replace="fragments/footer :: footerFragment"></th:block>
             </div>
         </div>
     </div>
