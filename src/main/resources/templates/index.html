@@ -5,6 +5,16 @@
 
 <!--헤더 -->
 <div layout:fragment="content">
+    <div id="gnbWrap">
+        <ul id="gnb">
+            <li class="active" data-menuanchor="intro"><a href="./#intro">home</a></li>
+            <li data-menuanchor="index01"><a href="./#index01">experience</a></li>
+            <li data-menuanchor="index02"><a href="./#index02">Features</a></li>
+            <li data-menuanchor="index03"><a href="./#index03">Preference</a></li>
+            <li data-menuanchor="index04"><a href="./#index04">Automation</a></li>
+            <li data-menuanchor="index05"><a href="./#index05">partner</a></li>
+        </ul>
+    </div>
     <div id="indexwrap">
         <div class="section intro">
             <div class="desc">
@@ -20,7 +30,7 @@
                     창출합니다.</span>
                 </div>
                 <div class="bt-area opacity" data-animation-effect="fadeInUp" data-effect-delay="2000">
-                    <a href="./down.html" class="down">체험판 다운로드</a>
+                    <a th:href="@{/download}" class="down">체험판 다운로드</a>
                     <a href="./pricing01.html" class="buy">구매하기</a>
                 </div>
             </div>
