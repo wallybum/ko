@@ -117,28 +117,16 @@ $(function(){
                 el: '.index04 .pager',
                 type: 'bullets',
 				clickable: true,
-            },  
+            },
             loop: true,
             breakpoints: {
                 1023: {
                     slidesPerGroup:1,
                 },
             },
-        });      
-        var mAtSlide = new Swiper('.index05 .part-bx .side-bx', {
-            speed: 400,
-            spaceBetween: 60,
-            pagination: {
-                el: '.index05 .pager',
-                type: 'bullets',
-				clickable: true,
-            },  
-            breakpoints: {
-                767: {
-                    spaceBetween: 0
-                },
-            }
-        }); 
+        });
+
+
 
         mFeaSlide = new Swiper('.index02 .fea-lst .slide-bx', {
             pagination: {
@@ -284,6 +272,7 @@ function videoResize() {
         $('#indexwrap .intro .video-bg ').css({width:'1920px', 'height':'1080px'});
     }
 }
+
 
 
 function adjustScript() {
