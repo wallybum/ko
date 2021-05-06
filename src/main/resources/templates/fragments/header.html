@@ -7,7 +7,7 @@
             <div class="inner">
                 <h1 class="logo"><a href="/">eXERD</a></h1>
                 <div class="utill">
-                    <a href="./pricing01.html" class="buy">구매하기</a>
+                    <a th:href="@{/buy}" class="buy">구매하기</a>
                     <span th:text="${#httpServletRequest.requestURI}"></span>
                     <a th:href="@{/down}" class="down">다운로드</a>
                     <a href="http://exerd.com:8081/help/index.jsp?lang=ko&topic=%2Fcom.tomato.exerd.help%2Fhtml%2Fproducts%2Fwhatsexerd.html" target="_blank" class="doc">문서</a>
@@ -36,8 +36,8 @@
                 <ul class="menu">
                     <li><em>Menu</em>
                         <ul>
-                            <li><a th:href="@{/}">다운로드</a></li>
-                            <li><a href="./pricing01.html">구매</a></li>
+                            <li><a th:href="@{/down}">다운로드</a></li>
+                            <li><a th:href="@{/buy}">구매</a></li>
                             <li><a href="http://exerd.com:8081/help/index.jsp?lang=ko&topic=%2Fcom.tomato.exerd.help%2Fhtml%2Fproducts%2Fwhatsexerd.html" target="_blank">문서</a></li>
                             <li><a href="https://techdom.tomatosystem.co.kr/p/00019/?bn=eXERD&tn=qna" target="_blank">지원</a></li>
                         </ul>
@@ -46,7 +46,7 @@
                         <ul>
                             <li><a href="./release.html">릴리즈노트</a></li>
                             <li><a href="./license.html">라이선스</a></li>
-                            <li><a href="./pricing01.html">구매</a></li>
+                            <li><a th:href="@{/buy}">구매</a></li>
                             <li><a href="./about.html">회사소개</a></li>
                             <li><a href="./index.html#index05">고객</a></li>
                         </ul>

@@ -5,15 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class DownloadController {
+public class BuyController {
 
     @Autowired
-//    DownloadService downloadService;
+    // BuyService buyService;
 
-    @GetMapping(value="/down")
+    @GetMapping(value="/buy")
     public String main(){
-
-        return "l";
-//      return "";
+        System.out.println("구매하기 호출");
+        return "buy.html";
     }
 }
