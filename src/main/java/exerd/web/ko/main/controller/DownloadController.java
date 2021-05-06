@@ -12,8 +12,6 @@ public class DownloadController {
 
     @GetMapping(value="/down")
     public String main(){
-
-        return "l";
-//      return "";
+        return "download.html";
     }
 }
