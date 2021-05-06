@@ -7,12 +7,24 @@
 <div layout:fragment="content">
     <div id="gnbWrap">
         <ul id="gnb">
-            <li class="active" data-menuanchor="intro"><a href="./#intro">home</a></li>
-            <li data-menuanchor="index01"><a href="./#index01">experience</a></li>
-            <li data-menuanchor="index02"><a href="./#index02">Features</a></li>
-            <li data-menuanchor="index03"><a href="./#index03">Preference</a></li>
-            <li data-menuanchor="index04"><a href="./#index04">Automation</a></li>
-            <li data-menuanchor="index05"><a href="./#index05">partner</a></li>
+            <li class="active" data-menuanchor="intro">
+                <a th:href="@{/#intro}">home</a>
+            </li>
+            <li data-menuanchor="index01">
+                <a th:href="@{/#index01}">experience</a>
+            </li>
+            <li data-menuanchor="index02">
+                <a th:href="@{/#index02}">Features</a>
+            </li>
+            <li data-menuanchor="index03">
+                <a th:href="@{/#index03}">Preference</a>
+            </li>
+            <li data-menuanchor="index04">
+                <a th:href="@{/#index04}">Automation</a>
+            </li>
+            <li data-menuanchor="index05">
+                <a th:href="@{/#index05}">partner</a>
+            </li>
         </ul>
     </div>
     <div id="indexwrap">
@@ -26,8 +38,7 @@
                 <div class="tx02 opacity" data-animation-effect="fadeInUp" data-effect-delay="1400">eXERD</div>
                 <div class="tx03 opacity" data-animation-effect="fadeInUp" data-effect-delay="1700">
                     <strong>이클립스 기반의 혁신적인 DB 모델링 툴</strong>
-                    <span>E-R 모델링 세계의 새로운 가치를<br>
-                    창출합니다.</span>
+                    <span>E-R 모델링 세계의 새로운 가치를<br>창출합니다.</span>
                 </div>
                 <div class="bt-area opacity" data-animation-effect="fadeInUp" data-effect-delay="2000">
                     <a th:href="@{/down}" class="down">체험판 다운로드</a>
@@ -55,14 +66,21 @@
                     <div class="desc">
                         <p class="tx01 opacity" data-animation-effect="fadeInUp"
                            data-effect-delay="600">
-                            <span>새로운 <strong>모델링 세계</strong>를
-                            </span> <span>경험할 수 있습니다.</span>
+                            <span>새로운
+                                <strong>모델링 세계</strong>를
+                            </span>
+                            <span>경험할 수 있습니다.</span>
                         </p>
                         <p class="tx02 opacity" data-animation-effect="fadeInUp"
                            data-effect-delay="900">
-                            <span>eXERD는 경력자 뿐만 아니라 초보자도 </span> <span>데이터베이스 설계를
-                                직관적이고, 쉽고, 빠르게 </span> <span>하도록 개발된 이클립스 기반 <em>지능형 E-R</em></span> <span><em>모델링
-                                    도구</em>입니다.</span>
+                            <span>eXERD는 경력자 뿐만 아니라 초보자도 </span>
+                            <span>데이터베이스 설계를 직관적이고, 쉽고, 빠르게 </span>
+                            <span>하도록 개발된 이클립스 기반
+                                <em>지능형 E-R</em>
+                            </span>
+                            <span>
+                                <em>모델링 도구</em>입니다.
+                            </span>
                         </p>
                         <div class="tx-slide opacity" data-animation-effect="fadeInUp"
                              data-effect-delay="1200">
@@ -75,18 +93,22 @@
                                             는 <strong>다릅니다</strong>
                                         </p>
                                         <p class="txt">
-                                            <span>eXERD는 독특한 믿음을 바탕으로 <em>새로운 가치를 추구</em> 하고 있습니다.
-                                            </span> <span>사용자를 즐겁게 하여, 일의 능률을 높입니다.</span>
+                                            <span>eXERD는 독특한 믿음을 바탕으로
+                                                <em>새로운 가치를 추구</em> 하고 있습니다.
+                                            </span>
+                                            <span>사용자를 즐겁게 하여, 일의 능률을 높입니다.</span>
                                         </p>
                                     </div>
                                     <div class="swiper-slide item">
                                         <p class="hd">
-                                            <strong class="f-eng">eXERD</strong>
-                                            는 <strong>무엇이든 가능합니다.</strong>
+                                            <strong class="f-eng">eXERD</strong>는
+                                            <strong>무엇이든 가능합니다.</strong>
                                         </p>
                                         <p class="txt">
-                                            <span>컴퓨팅의 세상에서 <em>불가능 한 것은 없습니다.</em></span> <span>중요한
-                                                점은 어떻게 하느냐 하는 것입니다. </span>
+                                            <span>컴퓨팅의 세상에서
+                                                <em>불가능 한 것은 없습니다.</em>
+                                            </span>
+                                            <span>중요한 점은 어떻게 하느냐 하는 것입니다. </span>
                                         </p>
                                     </div>
                                 </div>
@@ -103,11 +125,13 @@
                     <div class="desc">
                         <div class="hd opacity" data-animation-effect="fadeInUp"
                              data-effect-delay="300">
-                            <span>eXERD의</span> <strong>Special Features</strong>
+                            <span>eXERD의</span>
+                            <strong>Special Features</strong>
                         </div>
                         <div class="bd opacity" data-animation-effect="fadeInUp"
                              data-effect-delay="600">
-                            <span>이클립스 기반 지능형 E-R 모델링 </span> <span>도구 eXERD 입니다.</span>
+                            <span>이클립스 기반 지능형 E-R 모델링 </span>
+                            <span>도구 eXERD 입니다.</span>
                         </div>
                     </div>
                     <div class="fea-lst opacity" data-animation-effect="fadeInUp"
@@ -120,7 +144,9 @@
                                         <div class="tx02">논리와 물리 모델링을 동시에 보면서 편집할 수 있습니다. 모드를
                                             바꿔가며 매칭되는 모델을 찾아 헤매지 않아도 되며, 다이어그램에서 컬럼에 대한 정보 조회 및 편집이 가능합니다.
                                         </div>
-                                        <a href="#none" class="close"><span>닫기</span></a>
+                                        <a href="#none" class="close">
+                                            <span>닫기</span>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide item item2">
@@ -129,7 +155,9 @@
                                         <div class="tx02">E-R다이어그램 작성 시 사용할 표준 용어와 물리명을 정의하여 표준
                                             용어 사전을 만들 수 있습니다. 전체 모델을 대상으로 표준 용어 준수 여부를 검토하고 적용이 가능합니다.
                                         </div>
-                                        <a href="#none" class="close"><span>닫기</span></a>
+                                        <a href="#none" class="close">
+                                            <span>닫기</span>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide item item3">
@@ -139,17 +167,21 @@
                                             지정된 데이터 타입 변경 시 참조 중인 모든 컬럼에 즉시 반영되며, 최초 도메인 입력 시 해당 데이터 타입으로
                                             신규 도메인이 자동 생성됩니다.
                                         </div>
-                                        <a href="#none" class="close"><span>닫기</span></a>
+                                        <a href="#none" class="close">
+                                            <span>닫기</span>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide item item4">
                                     <div class="bx">
                                         <div class="tx01">인터랙티브한 애니메이션 효과</div>
-                                        <div class="tx02">복잡한 E-R다이어그램 작성시, 편집 내용 강조효과로 명확한 인지를
+                                        <div class="tx02">복잡한 E-R 다이어그램 작성시, 편집 내용 강조효과로 명확한 인지를
                                             가능하게 합니다. 인터랙티브한 애니메이션 강조효과는 업무에 대한 집중도와 작업 효율을 향상시킵니다. 예를 들어
                                             컬럼을 삭제하고도 어떤 컬럼이 삭제된 건지 찾을 필요 없이 Undo/Redo만 수행하면 알 수 있습니다.
                                         </div>
-                                        <a href="#none" class="close"><span>닫기</span></a>
+                                        <a href="#none" class="close">
+                                            <span>닫기</span>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide item item5">
@@ -158,7 +190,9 @@
                                         <div class="tx02">E-R 다이어그램에서 테이블 간 관계선을 항상 최적의 경로로 자동
                                             배치하며 관계선 배치를 위한 시간 절감 효과를 얻을 수 있습니다.
                                         </div>
-                                        <a href="#none" class="close"><span>닫기</span></a>
+                                        <a href="#none" class="close">
+                                            <span>닫기</span>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide item item6">
@@ -168,7 +202,9 @@
                                             E-R다이어그램을 생성할 수 있습니다. 역공학된 모델은 재편집할 수 있으며, 관심영역별로 분류하여 여러
                                             다이어그램으로 생성 또는 추가 할 수 있습니다.
                                         </div>
-                                        <a href="#none" class="close"><span>닫기</span></a>
+                                        <a href="#none" class="close">
+                                            <span>닫기</span>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide item item7">
@@ -177,7 +213,9 @@
                                         <div class="tx02">설계한 E-R 모델을 다양한 옵션(DDL)을 적용하여 DBMS에
                                             테이블을 생성할 수 있습니다. 대상 모델을 직접 선택하거나 다이어그램별로 지정하여 DDL생성을 지원합니다.
                                         </div>
-                                        <a href="#none" class="close"><span>닫기</span></a>
+                                        <a href="#none" class="close">
+                                            <span>닫기</span>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide item item8">
@@ -186,7 +224,9 @@
                                         <div class="tx02">E-R 다이어그램에서 테이블간 관계선을 항상 최적의 경로로 자동
                                             배치하며 관계선 배치를 위한 시간 절감 효과를 얻을 수 있습니다.
                                         </div>
-                                        <a href="#none" class="close"><span>닫기</span></a>
+                                        <a href="#none" class="close">
+                                            <span>닫기</span>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide item item9">
@@ -196,7 +236,9 @@
                                             이클립스 플러그인과 완벽하게 연동됩니다. 또한 모델링을 위해 별도 프로그램을 실행하거나 기존 작업환경을 바꿀
                                             필요 없이 그대로 사용 가능합니다.
                                         </div>
-                                        <a href="#none" class="close"><span>닫기</span></a>
+                                        <a href="#none" class="close">
+                                            <span>닫기</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +254,9 @@
                 <div class="inbx">
                     <div class="desc opacity" data-animation-effect="fadeInUp" data-effect-delay="300">
                         <span>개발자들이 eXERD를</span>
-                        <span><strong>좋아하는 이유</strong>는?</span>
+                        <span>
+                            <strong>좋아하는 이유</strong>는?
+                        </span>
                     </div>
                     <div class="pref-bx  opacity" data-animation-effect="fadeInUp" data-effect-delay="600">
                         <div class="pager"></div>
@@ -238,8 +282,9 @@
                                     <div class="bx">
                                         <p class="hd">편리한 사용법</p>
                                         <p class="bd">
-                                                <span class="thum">
-                                                    <img th:src="@{/img/ic_m0402.png}" alt=""></span>
+                                            <span class="thum">
+                                                <img th:src="@{/img/ic_m0402.png}" alt="">
+                                            </span>
                                             <span>매우 직관적인 위지윅 모델링 도구로 쉽고, 빠르고,</span>
                                             <span>동적인 인터페이스를 제공합니다</span>
                                         </p>
@@ -251,8 +296,8 @@
                                     <div class="bx">
                                         <p class="hd">이클립스통합</p>
                                         <p class="bd">
-                                                <span class="thum">
-                                                    <img th:src="@{/img/ic_m0403.png}" alt=""></span>
+                                            <span class="thum">
+                                                <img th:src="@{/img/ic_m0403.png}" alt=""></span>
                                             <span>이클립스와 완벽 융합된 도구로 별도 프로그램을 실행할 필요 없이</span>
                                             <span>기존 작업 환경을 그대로 사용 가능합니다.</span>
                                         </p>
@@ -288,8 +333,8 @@
                         <p class="tx01  opacity" data-animation-effect="fadeInUp" data-effect-delay="300">
                             <span>eXERD의 다양한</span>
                             <span>
-                                    <strong>자동화 사용자 지원</strong> 기능
-                                </span>
+                                <strong>자동화 사용자 지원</strong> 기능
+                            </span>
                         </p>
                         <p class="tx02 opacity" data-animation-effect="fadeInUp" data-effect-delay="500">
                             다양한 자동화 사용자 지원은 작업시간을 극적으로 줄여줍니다.

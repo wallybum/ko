@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<div layout:fragment="content">
+    <div id="container">
+        <div class="sub-vis pricing">
+            <div class="inbx">
+                <div class="breadcrumb">
+                    <div class="pc"><span class="home"><a href="/" class="home">home</a></span><span><a href="./pricing02.jsp">구매</a></span><strong>업그레이드</strong></div>
+                    <div class="mobile"><a href="./pricing01.jsp" class="prev"><span>prev</span></a><strong>업그레이드</strong><a href="./release.jsp" class="next"><span>next</span></a></div>
+                </div><!-- /breadcrumb -->
+                <h2 class="sub-tit opacity" data-animation-effect="fadeInUp" data-effect-delay="100">Pricing</h2>
+                <div class="copy">
+                    <span class="opacity" data-animation-effect="fadeInUp" data-effect-delay="400">eXERD 의 합리적인 가격을 </span>
+                    <span class="opacity" data-animation-effect="fadeInUp" data-effect-delay="700">경험해보세요</span>
+                </div>
+                <div class="img opacity" data-animation-effect="fadeInUp" data-effect-delay="400"></div>
+            </div>
+        </div>
+        <div class="div-tab opacity" data-animation-effect="fadeInUp" data-effect-delay="300">
+            <ul>
+                <li>
+                    <a th:href="@{/buy}">구매</a>
+                </li>
+                <li class="active">
+                    <a th:href="@{/upgrade}">업그레이드</a>
+                </li>
+            </ul>
+        </div>
+        <div class="s-content">
+            <div class="inner">
+                <div class="upg-chk opacity" data-animation-effect="fadeInUp" data-effect-delay="400">
+                    <h3 class="tit">
+                        <em>업그레이드</em> 대상 확인하기</h3>
+                    <div class="tx-lg">라이센스키</div>
+                    <div class="inp-grp">
+                        <input type="text" id="upgrade-key" class="input" placeholder="라이센스키">
+                        <a href="#" id="upgrade-check-btn" class="bt-cp">확인하기</a>
+                    </div>
+                    <p class="cmt">
+                        <span id="upgrade-message">라이센스키를 입력하시면 업그레이드 가능 여부를 확인하실 수 있습니다.<!-- 무료 업그레이드 대상자입니다. --></span>
+                        <strong id="upgrade-copy-message"><!-- 업그레이드 가능 수량 : 3 Copy --></strong>
+                    </p>
+                </div>
+
+                <h3 class="step-tit opacity" data-animation-effect="fadeInUp" data-effect-delay="100">
+                    <i>01</i>Step</h3>
+                <div class="pric-bx opacity" data-animation-effect="fadeInUp" data-effect-delay="400">
+                    <div class="pric-tit">
+                        <h4 class="tit"><em>업그레이드</em> 수량 입력</h4>
+                    </div>
+                    <table class="data">
+                        <colgroup>
+                            <col class="dw1">
+                            <col class="dw2">
+                            <col class="dw3">
+                            <col class="dw4">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th colspan="2" class="brdN">항목</th>
+                            <th colspan="2">비용</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td colspan="2" class="brdN l">업그레이드 수량</td>
+                            <td>
+                                <input type="text" class="num block up-copy" readonly></td>
+                            <td>EA</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="brdN l">소비자가</td>
+                            <td colspan="2" class="cost">
+                                <span>
+                                    <strong class="up-org-price">0</strong> 원
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="brdN l">할인율</td>
+                            <td>
+                                <span class="c-blue2">
+                                    <strong class="up-dis-rate">0</strong>%
+                                </span>
+                            </td>
+                            <td colspan="2" class="cost">
+                                <span class="c-blue2">
+                                    <strong class="up-dis-price">0</strong> 원
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="brdN l">공급가</td>
+                            <td colspan="2" class="cost">
+                                <span class="c-red">
+                                    <strong class="up-tot-price"></strong> 원
+                                </span>   (VAT 포함)
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div><!-- /pric-bx-->
+
+                <h3 class="step-tit opacity" data-animation-effect="fadeInUp" data-effect-delay="100">
+                    <i>02</i> Step</h3>
+                <div class="pric-bx opacity" data-animation-effect="fadeInUp" data-effect-delay="400">
+                    <div class="pric-tit">
+                        <h4 class="tit"><em>견적 / 발주</em> 수신 정보</h4>
+                    </div>
+                    <div class="data-dv">
+                        <div class="dv-row">
+                            <div class="hd">구매수량</div>
+                            <div class="bd">
+                                <input type="text" class="input sm num up-copy" readonly>
+                                <span class="help-tx">구매수량 변경은 위 견적금액확인에서 입력하시면 됩니다</span>
+                            </div>
+                        </div>
+                        <div class="dv-row">
+                            <div class="dv-grp">
+                                <div class="hd">회사명</div>
+                                <div class="bd">
+                                    <input type="text" id="up-company" class="input sm block up-company">
+                                </div>
+                            </div>
+                            <div class="dv-grp">
+                                <div class="hd">사업명</div>
+                                <div class="bd">
+                                    <input type="text" id="up-project" class="input sm block up-project"></div>
+                            </div>
+                        </div>
+                        <div class="dv-row">
+                            <div class="hd">주소</div>
+                            <div class="bd">
+                                <input type="text" id="up-addr" class="input sm block up-addr"></div>
+                        </div>
+                        <div class="dv-row">
+                            <div class="hd">담당자명</div>
+                            <div class="bd">
+                                <input type="text" id="up-name" class="input sm block up-company"></div>
+                        </div>
+                        <div class="dv-row">
+                            <div class="hd">연락처</div>
+                            <div class="bd">
+                                <input type="text" id="up-telephone" class="input sm block up-telephone">
+                                <span class="help-tx">* “-”을 포함하여 작성해주세요</span>
+                            </div>
+                        </div>
+                        <div class="dv-row">
+                            <div class="hd">이메일</div>
+                            <div class="bd">
+                                <input type="text" id="up-email" class="input sm block up-email">
+                            </div>
+                        </div>
+                        <div class="dv-row">
+                            <div class="hd">사업자등록증</div>
+                            <div class="bd">
+                                <div class="filebox">
+                                    <input class="upload-name" value="" disabled="disabled" placeholder="사업자등록증">
+                                    <label for="input_file">파일 첨부하기</label>
+                                    <input type="file" id="input_file" name="v_file" class="upload-hidden">
+                                </div>
+                                <span class="help-tx">* 세금계산서 발급시 사업자 등록증 첨부(2MB이하)</span>
+                            </div>
+                        </div>
+                        <div class="dv-row">
+                            <div class="hd">이전 주문번호</div>
+                            <div class="bd">
+                                <input type="text" id="up-old-number" class="input sm block up-old-number"></div>
+                        </div>
+                    </div><!-- /data-dv -->
+                    <p class="cmt"><i class="c-blue2">*</i> 구매신청 하실 경우 입력하신 이메일로 세금계산서가 발송됩니다.</p>
+                </div><!-- /pric-bx -->
+
+                <h3 class="step-tit opacity" data-animation-effect="fadeInUp" data-effect-delay="100">
+                    <i>03</i> Step</h3>
+                <div class="pric-bx opacity" data-animation-effect="fadeInUp" data-effect-delay="400">
+                    <div class="pric-tit">
+                        <h4 class="tit">
+                            <em>고객사/소유자 정보</em>
+                        </h4>
+                        <span class="right">
+                            <input type="checkbox" id="rdo0001" checked>
+                            <label for="rdo0001">수신자 정보 동일</label>
+                        </span>
+                    </div>
+                    <div class="data-dv">
+                        <div class="dv-row">
+                            <div class="dv-grp">
+                                <div class="hd">회사명</div>
+                                <div class="bd">
+                                    <input type="text" id="up-company2" class="input sm block up-company">
+                                </div>
+                            </div>
+                            <div class="dv-grp">
+                                <div class="hd">담당자명</div>
+                                <div class="bd">
+                                    <input type="text" id="up-name2" class="input sm block up-company">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dv-row">
+                            <div class="dv-grp">
+                                <div class="hd">연락처</div>
+                                <div class="bd">
+                                    <input type="text" id="up-telephone2" class="input sm block up-telephone">
+                                </div>
+                            </div>
+                            <div class="dv-grp">
+                                <div class="hd">이메일</div>
+                                <div class="bd">
+                                    <input type="text" id="up-email2" class="input sm block up-email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="cmt">
+                        <i class="c-blue">*</i> 구매 시 라이선스 키를 등록하는데 사용되는 정보이니 관리하기 쉬운 이메일을 등록하여 주십시오.</p>
+                </div><!-- /pric-bx -->
+
+                <div class="aggr-bx opacity" data-animation-effect="fadeInUp" data-effect-delay="100">
+                    <p class="tx-lg">라이선스는 구매자에게 해당 제품 버전에 대한 지속적인 사용권이 부여됩니다.</p>
+                    <p class="chk">
+                        <input type="checkbox" id="aggr" checked>
+                        <label for="aggr" class="typ-ap">개인정보수집
+                            <em onclick="callBpop('#pop-aggr');">안내</em> 동의
+                        </label>
+                    </p>
+                    <div class="btn-box">
+                        <a href="#" class="buy-btn-up btn btn-lg radius">견적서발송</a>
+                        <a href="#" class="reg-btn-up btn btn-lg radius">구매신청</a>
+                    </div>
+                </div><!-- /aggr-bx-->
+            </div>
+        </div>
+    </div>
+    <div class="layPop2" id="pop-aggr">
+        <h3 class="pop-tit"><em>개인정보 수집 및</em> 이용에 대한 안내</h3>
+        <div class="pop-con">
+            <h4 class="pop-tit2">개인정보 수집 및 이용에 대한 안내 (필수)</h4>
+            <ul class="ul-list01">
+                <li>수집목적: 제품 견적서 및 발주서 발행 및 고객 상담</li>
+                <li>수집항목: 회사명, 주소, 성명, 이메일, 전화번호 등</li>
+                <li>보유기간: 관련 법령 또는 회사 내부방침에 의해 보존 필요시 까지 보관, 그외 지체없이 파기</li>
+            </ul><!-- /ul-list01 -->
+            <div class="btn-box">
+                <a href="#none" class="btn radius2 b-close">확인</a>
+            </div>
+        </div>
+    </div>
+    <div class="layPop" id="pop-buy">
+        <h3 class="pop-tit">구매 견적서</h3>
+        <div class="pop-con">
+            <div class="data-dv">
+                <div class="dv-row">
+                    <div class="dv-grp bg-yellow">
+                        <div class="hd">이름</div>
+                        <div class="bd up-p-name"></div>
+                    </div>
+                    <div class="dv-grp  bg-yellow">
+                        <div class="hd">전화번호</div>
+                        <div class="bd bg-yellow up-p-telephone"></div>
+                    </div>
+                </div>
+                <div class="dv-row">
+                    <div class="dv-grp bg-yellow">
+                        <div class="hd">소속</div>
+                        <div class="bd up-p-company"></div>
+                    </div>
+                    <div class="dv-grp  bg-yellow">
+                        <div class="hd">이메일</div>
+                        <div class="bd bg-yellow up-p-email"></div>
+                    </div>
+                </div>
+            </div><br><br>
+
+            <div class="data-dv">
+                <div class="dv-row bg-yellow">
+                    <div class="hd">고객사</div>
+                    <div class="bd up-p-company"></div>
+                </div>
+                <div class="dv-row bg-yellow">
+                    <div class="hd">사업명</div>
+                    <div class="bd up-p-project"></div>
+                </div>
+                <div class="dv-row">
+                    <div class="hd">견적 총금액</div>
+                    <div class="bd"
+                    ><span class="c-red">
+                        <strong class="up-tot-price">0</strong> 원</span>   (VAT 포함)</div>
+                </div>
+            </div><br><br>
+
+            <table class="data">
+                <colgroup>
+                    <col style="width:25%;">
+                    <col style="width:25%;">
+                    <col style="width:25%;">
+                    <col style="width:25%;">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th class="brdN">제품명</th>
+                    <th>단가</th>
+                    <th>수량</th>
+                    <th>소비자가</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="brdN">eXERD v3.x</td>
+                    <td class="text-right">
+                        <span class="up-p-p"></span> 원
+                    </td>
+                    <td class="up-copy"></td>
+                    <td class="text-right">
+                        <span class="up-org-price"></span> 원
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="brdN">할인율</th>
+                    <td colspan="2" class="text-right bg-yellow">
+                        <span class="c-blue2 up-p-dis-price"></span></td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="brdN">공급가</th>
+                    <td colspan="2" class="text-right up-p-tot-price"></td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="brdN">부가가치세</th>
+                    <td colspan="2" class="text-right up-p-vat"></td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="brdN">합계</th>
+                    <td colspan="2" class="text-right bg-yellow">
+                        <span class="c-red up-p-tot-price2"></span></td>
+                </tr>
+                </tbody>
+            </table><br><br>
+
+            <div class="data-dv">
+                <div class="dv-row">
+                    <div class="hd">견적일</div>
+                    <div class="bd ndate"></div>
+                </div>
+                <div class="dv-row">
+                    <div class="dv-grp">
+                        <div class="hd">상호명</div>
+                        <div class="bd">(주) 토마토시스템</div>
+                    </div>
+                    <div class="dv-grp">
+                        <div class="hd">대표이사</div>
+                        <div class="bd">이상돈 (직인생략)</div>
+                    </div>
+                </div>
+                <div class="dv-row">
+                    <div class="hd">견적담당</div>
+                    <div class="bd">윤청화</div>
+                </div>
+                <div class="dv-row">
+                    <div class="hd">E-mail</div>
+                    <div class="bd">chyoon@tomatosystem.co.kr</div>
+                </div>
+            </div><br><br>
+
+            <table class="data">
+                <colgroup>
+                    <col style="width:25%;"><col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th class="brdN" colspan="2">Remarks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th class="brdN">유효기간</th>
+                    <td class="text-left">견적 후 30일까지</td>
+                </tr>
+                <tr>
+                    <th class="brdN">유효기간</th>
+                    <td class="text-left">eXERD v3.x 업데이트 무상지원 (온라인 업데이트)</td>
+                </tr>
+                <tr>
+                    <th class="brdN">유효기간</th>
+                    <td class="text-left">
+                        <ul class="ul-list01">
+                            <li>라이선스 키는 요청 이메일로 발송되는 온라인 ESD제품임.</li>
+                            <li>발주 시 라이선스 발행에 필요한 정확한 이름 및 대표 이메일 정보를 기재하여야 함.</li>
+                            <li>온라인 www. exerd.com 또는 제품 내 도움말을 매뉴얼로 제공함.</li>
+                            <li>선입금 후 라이선스 발급</li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="btn-box">
+                <a href="#" class="buy-up-save-btn btn btn-blue2 btn-lg radius">견적서발송</a>
+            </div>
+
+        </div>
+        <a href="#none" class="bt-close b-close"><span>닫기</span></a>
+    </div>
+    <div class="layPop" id="pop-reg">
+        <h3 class="pop-tit">발주서</h3>
+        <div class="pop-con">
+            <h4 class="pop-tit2">다음과 같이 발주하오니 소정 기일 내에 납품하여 주시기 바랍니다.</h4>
+            <div class="data-dv">
+                <div class="dv-row">
+                    <div class="hd">발주 일자</div>
+                    <div class="bd ndate"></div>
+                </div>
+                <div class="dv-row">
+                    <div class="hd">사업명</div>
+                    <div class="bd up-p-project"></div>
+                </div>
+                <div class="dv-row">
+                    <div class="hd">회사명</div>
+                    <div class="bd up-p-company"></div>
+                </div>
+                <div class="dv-row">
+                    <div class="dv-grp">
+                        <div class="hd">대표이사</div>
+                        <div class="bd up-p-name"></div>
+                    </div>
+                    <div class="dv-grp">
+                        <div class="hd">전화번호</div>
+                        <div class="bd up-p-telephone"></div>
+                    </div>
+                </div>
+                <div class="dv-row">
+                    <div class="dv-grp">
+                        <div class="hd">연락처</div>
+                        <div class="bd up-p-telephone"></div>
+                    </div>
+                    <div class="dv-grp">
+                        <div class="hd">이메일</div>
+                        <div class="bd up-p-email"></div>
+                    </div>
+                </div>
+                <div class="dv-row">
+                    <div class="hd">주소</div>
+                    <div class="bd up-p-addr"></div>
+                </div>
+            </div><br><br>
+
+            <div class="data-dv">
+                <div class="dv-row">
+                    <div class="hd">수신</div>
+                    <div class="bd">(주) 토마토시스템</div>
+                </div>
+                <div class="dv-row">
+                    <div class="hd">참조</div>
+                    <div class="bd">윤청화</div>
+                </div>
+                <div class="dv-row">
+                    <div class="hd">연락처</div>
+                    <div class="bd">02 - 3445- 2194 (210)</div>
+                </div>
+                <div class="dv-row">
+                    <div class="hd">발주 총금액</div>
+                    <div class="bd"><span class="c-red"><strong class="up-tot-price"> </strong>원</span>   (VAT 포함)</div>
+                </div>
+            </div><br><br>
+
+            <h4 class="pop-tit2">발주 요청 정보</h4>
+            <div class="data-dv">
+                <div class="dv-row">
+                    <div class="hd">이름</div>
+                    <div class="bd bg-yellow up-p-company2">
+                        <span class="help-tx c-blue">회사명 또는 대표되는 이름</span>
+                    </div>
+                </div>
+                <div class="dv-row">
+                    <div class="hd">E-mail</div>
+                    <div class="bd bg-yellow up-p-email2">
+                        <span class="help-tx c-blue">회사 대표 / 발주 담당자</span>
+                    </div>
+                </div>
+                <div class="dv-row">
+                    <ul class="ul-list01">
+                        <li>라이선스 키 발급을 위한 정보이므로 정확한 이름과 수신 가능한 메일을 기재하여야 함.</li>
+                        <li>발급된 라이선스 키는 작성된 이메일로만 수령 가능합니다</li>
+                    </ul>
+                </div>
+            </div><br><br>
+
+            <h4 class="pop-tit2">발주 품목</h4>
+            <table class="data">
+                <colgroup>
+                    <col style="width:25%;"><col style="width:25%;"><col style="width:25%;"><col style="width:25%;">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th class="brdN">제품명</th>
+                    <th>단가</th>
+                    <th>수량</th>
+                    <th>소비자가</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="brdN">eXERD v3.x</td>
+                    <td class="text-right"><span class="up-p-p"></span> 원</td>
+                    <td class="up-copy"></td>
+                    <td class="text-right"><span class="up-org-price"></span> 원</td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="brdN">발주금액</th>
+                    <td colspan="2" class="text-right">(VAT 별도)   <span class="up-p-tot-price"></span></td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="brdN">부가가치세</th>
+                    <td colspan="2" class="text-right up-p-vat"></td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="brdN">총 발주 금액</th>
+                    <td colspan="2" class="text-right bg-yellow">(VAT 포함)  <span class="c-red up-p-tot-price2">28,050,000 원</span></td>
+                </tr>
+                </tbody>
+            </table><br><br>
+
+            <table class="data">
+                <colgroup>
+                    <col style="width:25%;"><col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th class="brdN" colspan="2">Remarks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th class="brdN">납품기한</th>
+                    <td class="text-left">발주 후 7일이내</td>
+                </tr>
+                <tr>
+                    <th class="brdN">결제조건</th>
+                    <td class="text-left">현금 결제</td>
+                </tr>
+                <tr>
+                    <th class="brdN">입금계좌정보</th>
+                    <td class="text-left">
+                        <ul class="ul-list01">
+                            <li>은행명 : 중소기업은행</li>
+                            <li>계좌번호 : 233 - 039345 - 04 - 025</li>
+                            <li>예금주명 : (주)토마토시스템</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="brdN">기타</th>
+                    <td class="text-left">세금계산서 발급을 원할 경우 사업자 등록증을 첨부해 주시기 바랍니다.</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="btn-box">
+                <a href="#" class="reg-up-save-btn btn btn-blue2 btn-lg radius">구매신청</a>
+            </div>
+
+        </div>
+        <a href="#none" class="bt-close b-close"><span>닫기</span></a>
+    </div>
+    <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+    <script>
+
+    </script>
+</div>
+</html>
