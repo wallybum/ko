@@ -1,15 +1,28 @@
-
 var oldDownload = false;
+var upgradeInfo = {};
+
+ $(function(){
+	$.ajax({
+		contentType: "application/json; charset=UTF-8",
+		dataType : "json",
+		url :'/upgrade/info',
+		type :'GET',
+		async : false,
+		success : function(result){
+			upgradeInfo = result;
+		}
+	})
+})
+
+
 $(function () {
-	
     var BASE_URL = "/";
     var isUpgrade = false;
 	
-	// ndate
-	var dt = new Date();
-	var ny = dt.getFullYear(); 
-	var nm = dt.getMonth() + 1; 
-	var nd = dt.getDate(); 
+	var date = new Date();
+	var ny = date.getFullYear();
+	var nm = date.getMonth() + 1;
+	var nd = date.getDate();
 
 	if(nm < 10) nm = '0' + nm
 	if(nd < 10) nd = '0' + nd
@@ -53,10 +66,10 @@ $(function () {
     // 기존 다운로드
 	$("#pop-down .btn-old-download").click(function (e) {
 		e.preventDefault();
-		
+
 		// 기존 고객 이메일
         var oldEmail = $("#pop-down .dv-row:last [type='text']").val();
-        
+
         if (!oldEmail) {
             alert("이메일을 입력하세요.");
             $("#pop-down .dv-row:last [type='text']").focus();
@@ -76,14 +89,14 @@ $(function () {
         };
         
 		ajaxCall("POST", "servlet/download", payload, function (res) {
-			if (res != null && res == "true") {
+			if (res !== null && res === "true") {
 				alert('메일 전송이 완료되었습니다.');
 				$('#pop-down').bPopup().close();
 			}
-			if (res == "400") {
+			if (res === "400") {
 				alert('등록된 메일 주소가 없거나 실패하였습니다.');
 			}
-			if (res == "false") {
+			if (res === "false") {
 				alert('메일 전송이 실패하였습니다.');
             }
             // 초기화
@@ -92,7 +105,7 @@ $(function () {
             $("#pop-down [name='name']").val("");
             $("#pop-down .dv-row:last [type='text']").val("");
 		}, function (res) {
-			if (res != null && res == "true") {
+			if (res !== null && res === "true") {
 				alert('메일 전송이 완료되었습니다.');
 				$('#pop-down').bPopup().close();
 			} else {
@@ -109,7 +122,7 @@ $(function () {
     // 다운로드
 	$("#pop-down .btn-new-download").click(function (e) {
 		e.preventDefault();
-		
+
 		var email = $("#pop-down [name='email']").val();
 		var company = $("#pop-down [name='comName']").val();
 		var name = $("#pop-down [name='name']").val();
@@ -134,7 +147,7 @@ $(function () {
             $("#pop-down [name='name']").focus();
             return;
         }
-        if ($("#pop-down [name='radoi000']:checked").val() != "Y") {
+        if ($("#pop-down [name='radoi000']:checked").val() !== "Y") {
             alert("개인정보 수집 및 이용에 동의하세요.");
             return;
 		}
@@ -148,14 +161,14 @@ $(function () {
 		};
 
 		ajaxCall("POST", "servlet/download", payload, function (res) {
-			if (res != null && res == "true") {
+			if (res !== null && res === "true") {
 				alert('메일 전송이 완료되었습니다.');
 				$('#pop-down').bPopup().close();
 			}
-			if (res == "400") {
+			if (res === "400") {
 				alert('등록된 메일 주소가 없거나 실패하였습니다.');
 			}
-			if (res == "false") {
+			if (res === "false") {
 				alert('메일 전송이 실패하였습니다.');
             }
             // 초기화
@@ -164,7 +177,7 @@ $(function () {
             $("#pop-down [name='name']").val("");
             $("#pop-down .dv-row:last [type='text']").val("");
 		}, function (res) {
-			if (res != null && res == "true") {
+			if (res !== null && res === "true") {
 				alert('메일 전송이 완료되었습니다.');
 				$('#pop-down').bPopup().close();
 			} else {
@@ -242,7 +255,7 @@ $(function () {
 		var telephone2 = $("[name='license-telephone']").val();
 		var email2 = $("[name='license-mail']").val();
 		
-		if (!copy || copy == "0") {
+		if (!copy || copy === "0") {
 			alert("수량을 1개 이상 입력하세요.");
 			return;
 		}
@@ -342,7 +355,7 @@ $(function () {
 		var telephone2 = $("[name='license-telephone']").val();
 		var email2 = $("[name='license-mail']").val();
 
-		if (!copy || copy == "0") {
+		if (!copy || copy === "0") {
 			alert("수량을 1개 이상 입력하세요.");
 			return;
 		}
@@ -454,10 +467,10 @@ $(function () {
 		};
 
 		ajaxCall("POST", "payment/estimateProcess", payload, function (msg) {
-			if(msg == "0000"){
+			if(msg === "0000"){
 				alert("견적서가 발송 되었습니다.");
 				$('#pop-buy').bPopup().close();
-			}else if(msg == "4000"){
+			}else if(msg === "4000"){
 				alert("처리중입니다. 잠시만 기다려주세요.");
 			}else {
 				alert("문제가 발생했습니다.");
@@ -514,18 +527,18 @@ $(function () {
 		}
 		
 		ajaxCall2("POST", "payment/orderProcess", formdata, function (msg) {
-			if (msg == "0000") {
+			if (msg === "0000") {
 				alert("구매 신청이 완료되었습니다.\n안내 메일이 발송 되었습니다.");
 				$('#pop-reg').bPopup().close();
-			} else if (msg == "4000"){
+			} else if (msg === "4000"){
 				alert("처리중입니다. 잠시만 기다려주세요.")
-			} else if (msg == "2100") {
+			} else if (msg === "2100") {
 				alert("파일 사이즈 2MB를 넘었습니다.");
 				orderCount = 0;
-			} else if (msg == "3001") {
+			} else if (msg === "3001") {
 				alert("쿠폰 코드가 일치하지 않습니다.");
 				orderCount = 0;
-			} else if (msg == "3002") {
+			} else if (msg === "3002") {
 				alert("이미 사용하신 쿠폰입니다.");
 				orderCount = 0;
 			} else {
@@ -542,8 +555,8 @@ $(function () {
 	$("#upgrade-check-btn").click(function (e) {
 		e.preventDefault();
 		
-		var upgradeKey = $("#upgrade-key").val();
-		if (!upgradeKey) {
+		var licenseKey = $("#upgrade-key").val();
+		if (!licenseKey) {
 			alert("라이선스 키가 입력되지 않았습니다.");
 			$("#upgrade-key").focus();
 			return;
@@ -551,87 +564,86 @@ $(function () {
         
         // 공백확인
         var blankRegex = /[\s]/g;
-        if (blankRegex.test(upgradeKey)) {
+        if (blankRegex.test(licenseKey)) {
             alert("공백은 사용할 수 없습니다.");
             return;
         }
         var alphabetNumberRegex = /^[A-Za-z0-9+]*$/;
-        if (!alphabetNumberRegex.test(upgradeKey)) {
+        if (!alphabetNumberRegex.test(licenseKey)) {
             alert("영문, 숫자만 입력 가능합니다.");
             return;
         }
-		
-		var payload = {
-			licenseKey : upgradeKey
-		};
 
-		ajaxCall("POST", "UpgradeCheckServlet", payload, function (info2) {
-            var info = info2;
-            if (typeof(info2) == "string") {
-                info = JSON.parse(info2);
-            }
-			if (info.success){
-				if (info.data.productVersion == info.data.serviceProductVersion){
-                    isUpgrade = false;
-					$("#upgrade-message").text("최신버전입니다.");
-				} else if (info.data.newOrderNum != null) {
-                    isUpgrade = false;
-					$("#upgrade-message").text("이미 업그레이드 된 라이선스입니다.");
-				} else {
-                    orderDate = parseInt(info.data.orderNum.substr(0,8));
-					quantity = info.data.quantity;
-					orderNum = info.data.orderNum;
-					telephone = info.data.telephone;
-					name = info.data.name;
-					mail = info.data.email;
-					address = info.data.address;
-					isUpgrade = true;
-					if (orderDate > freeUpgradeLimit) {
-						alert("무료 업그레이드 대상자입니다.\n\n발주를 진행해주시기 바랍니다.(구매수량은 자동으로 측정됩니다.)");
-						$("#upgrade-message").text("무상 업그레이드 대상자입니다.");
-						unitPrice = 0;
+		$.ajax({
+			url: '/upgradeCheck/'+licenseKey,
+			type: 'GET',
+			async: false,
+			dataType: "json",
+			contentType: "application/json; charset = UTF-8",
+			success : function(data){
+				if (data.success){
+					if (data.certification.productVersion == data.product.productVersion){
+						isUpgrade = false;
+						$("#upgrade-message").text("최신버전입니다.");
+					} else if (data.certification.newOrderNum != null) {
+						isUpgrade = false;
+						$("#upgrade-message").text("이미 업그레이드 된 라이선스입니다.");
 					} else {
-						alert("무료 업그레이드 대상자가 아닙니다.");
-						$("#upgrade-message").text("무료 업그레이드 대상자가 아닙니다.");
+						orderDate = parseInt(data.certification.orderNum.substr(0,8));
+						quantity = data.certification.quantity;
+						orderNum = data.certification.orderNum;
+						telephone = data.certification.telephone;
+						name = data.certification.name;
+						mail = data.certification.email;
+						address = data.certification.address;
+						unitPrice = upgradeInfo.UPGRADE_PRICE
+						isUpgrade = true;
+
+						if (orderDate > upgradeInfo.FREE_UPGRADE_LIMIT) {
+							alert("무료 업그레이드 대상자입니다.\n\n발주를 진행해주시기 바랍니다.(구매수량은 자동으로 측정됩니다.)");
+							$("#upgrade-message").text("무상 업그레이드 대상자입니다.");
+							unitPrice = 0;
+						} else {
+							alert("무료 업그레이드 대상자가 아닙니다.");
+							$("#upgrade-message").text("무료 업그레이드 대상자가 아닙니다.");
+						}
+						$("#upgrade-copy-message").text("업그레이드 가능 수량 : " + quantity + " Copy");
+
+						// 금액 계산
+						dr = computeUpgradeDiscountRate(quantity);
+						var disRate = dr * 100;
+						var disPrice = unitPrice * dr * quantity;
+						var orgPrice = unitPrice * quantity;
+						$(".up-copy").val(quantity);
+						$(".up-dis-rate").text(disRate + "%");
+						$(".up-dis-price").text(disPrice).digits();
+						$(".up-org-price").text(orgPrice).digits();
+						var totalPrice = orgPrice - disPrice;
+						// 부과세
+						var vat = totalPrice * 0.1;
+						var totalPrice2 = totalPrice + vat;
+						$(".up-tot-price").text(totalPrice2).digits();
+						//
+
+						// 발주서 정보
+						$(".up-company").val(name);
+						$(".up-telephone").val(telephone);
+						$(".up-email").val(mail);
+						$(".up-addr").val(address);
+						$(".up-old-number").val(orderNum);
+
+						// 팝업창 관련
+						$(".up-copy").text(quantity);
+						$(".up-p-dis-price").text(disRate + " % (- " + numberFormat(disPrice) + " 원)");
+						$(".up-p-tot-price").text(numberFormat(totalPrice) + " 원");
+						$(".up-p-vat").text("10 % (+ " + numberFormat(vat) + " 원)");
+						$(".up-p-tot-price2").text(numberFormat(totalPrice2) + " 원");
 					}
-                    $("#upgrade-copy-message").text("업그레이드 가능 수량 : " + quantity + " Copy");
-                    
-                    // 금액 계산
-                    dr = computeUpgradeDiscountRate(quantity);
-                    var disRate = dr * 100;
-                    var disPrice = unitPrice * dr * quantity;
-                    var orgPrice = unitPrice * quantity;
-                    $(".up-copy").val(quantity);
-                    $(".up-dis-rate").text(disRate + "%");
-                    $(".up-dis-price").text(disPrice).digits();
-                    $(".up-org-price").text(orgPrice).digits();
-                    var totalPrice = orgPrice - disPrice;
-                    // 부과세
-                    var vat = totalPrice * 0.1;
-                    var totalPrice2 = totalPrice + vat;
-                    $(".up-tot-price").text(totalPrice2).digits();
-                    //
-
-                    // 발주서 정보
-                    $(".up-company").val(name);
-                    $(".up-telephone").val(telephone);
-                    $(".up-email").val(mail);
-                    $(".up-addr").val(address);
-                    $(".up-old-number").val(orderNum);
-
-                    // 팝업창 관련
-                    $(".up-copy").text(quantity);
-                    $(".up-p-dis-price").text(disRate + " % (- " + numberFormat(disPrice) + " 원)");
-                    $(".up-p-tot-price").text(numberFormat(totalPrice) + " 원");
-                    $(".up-p-vat").text("10 % (+ " + numberFormat(vat) + " 원)");
-                    $(".up-p-tot-price2").text(numberFormat(totalPrice2) + " 원");
+				} else {
+					isUpgrade = false;
+					$("#upgrade-message").text("잘못된 라이선스 키입니다.");
 				}
-			} else {
-                isUpgrade = false;
-				$("#upgrade-message").text("잘못된 라이선스 키입니다.");
 			}
-		}, function (res) {
-			alert("문제가 발생했습니다.");
 		});
     });
     
@@ -792,19 +804,19 @@ $(function () {
 		}
         
 		ajaxCall2("POST", "payment/orderProcess", formdata, function (msg) {
-			if (msg == "0000") {
+			if (msg === "0000") {
 				alert("구매 신청이 완료되었습니다.\n안내 메일이 발송 되었습니다.");
 				$('#pop-reg').bPopup().close();
-			} else if (msg == "2100") {
+			} else if (msg === "2100") {
 				alert("파일 사이즈 2MB를 넘었습니다.");
 				orderCount = 0;
-			} else if (msg == "3001") {
+			} else if (msg === "3001") {
 				alert("쿠폰 코드가 일치하지 않습니다.");
 				orderCount = 0;
-			} else if (msg == "3002") {
+			} else if (msg === "3002") {
 				alert("이미 사용하신 쿠폰입니다.");
 				orderCount = 0;
-			} else if (msg == "4001") {
+			} else if (msg === "4001") {
 				alert("이미 업그레이드 내역이 존재합니다.");
 				orderCount = 0;
 			}else {
